@@ -7,9 +7,9 @@
 -->
 
 <% if action == :edit %>
-  <% action_url = books_new_url(book)%>
+  <% action_url = book_url(book)%>
 <% else %>
-  <% action_url = books_new %>
+  <% action_url = books_new_url %>
 <% end %>
 
 <form action="<%= action_url %>" method="post">
@@ -18,7 +18,7 @@
   <% end %>
 
   <label for="title">Title</label>
-  
+  <input id="title" type="text" name="book[title]" value="<%= book.title %>">
 
   <br>
 

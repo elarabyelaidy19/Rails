@@ -1179,3 +1179,524 @@ Did you mean?  controller
   
 app/controllers/books_controller.rb:52:in `book_params'
 app/controllers/books_controller.rb:24:in `create'
+Started GET "/books/create" for ::1 at 2021-09-02 11:51:44 +0200
+Processing by BooksController#create as HTML
+Completed 400 Bad Request in 31ms (ActiveRecord: 0.0ms | Allocations: 1016)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: book
+Did you mean?  controller
+               action):
+  
+app/controllers/books_controller.rb:52:in `book_params'
+app/controllers/books_controller.rb:24:in `create'
+Started GET "/books/create" for ::1 at 2021-09-02 11:52:14 +0200
+Processing by BooksController#create as HTML
+Completed 400 Bad Request in 28ms (ActiveRecord: 0.0ms | Allocations: 1037)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: books
+Did you mean?  controller
+               action):
+  
+app/controllers/books_controller.rb:52:in `book_params'
+app/controllers/books_controller.rb:24:in `create'
+Started GET "/books/show" for ::1 at 2021-09-02 11:52:36 +0200
+Processing by BooksController#show as HTML
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 5.6ms | Allocations: 7086)
+
+
+  
+NameError (undefined local variable or method `books_new' for #<BooksController:0x0000000000abb8>
+Did you mean?  books_new_url):
+  
+app/controllers/books_controller.rb:14:in `show'
+Started GET "/books/1" for ::1 at 2021-09-02 11:52:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+Started GET "/books/1" for ::1 at 2021-09-02 11:54:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+Started GET "/books/edit" for ::1 at 2021-09-02 11:54:30 +0200
+Processing by BooksController#edit as HTML
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 59.1ms | Allocations: 4598)
+  Rendered books/edit.html.erb within layouts/application (Duration: 78.1ms | Allocations: 4925)
+  Rendered layout layouts/application.html.erb (Duration: 79.7ms | Allocations: 4994)
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 2.8ms | Allocations: 8189)
+
+
+  
+ActionView::Template::Error (undefined method `books_new' for #<ActionView::Base:0x0000000000c350>
+Did you mean?  books_new_url):
+     7: -->
+     8: 
+     9: <% if action == :edit %>
+    10:   <% action_url = books_new(book)%>
+    11: <% else %>
+    12:   <% action_url = books_new %>
+    13: <% end %>
+  
+app/views/books/_form.html.erb:10
+app/views/books/edit.html.erb:6
+app/controllers/books_controller.rb:37:in `edit'
+Started GET "/books/edit" for ::1 at 2021-09-02 11:55:09 +0200
+Processing by BooksController#edit as HTML
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 29.4ms | Allocations: 1987)
+  Rendered books/edit.html.erb within layouts/application (Duration: 43.0ms | Allocations: 2310)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | Allocations: 2379)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 1.0ms | Allocations: 4378)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    18:   <% end %>
+    19: 
+    20:   <label for="title">Title</label>
+    21:   <input id="title" type="text" name="book[title]" value="<%= book.title %>">
+    22: 
+    23:   <br>
+    24: 
+  
+app/views/books/_form.html.erb:21
+app/views/books/edit.html.erb:6
+app/controllers/books_controller.rb:37:in `edit'
+Started GET "/books/edit" for ::1 at 2021-09-02 11:55:36 +0200
+Processing by BooksController#edit as HTML
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 37.6ms | Allocations: 1940)
+  Rendered books/edit.html.erb within layouts/application (Duration: 54.3ms | Allocations: 2263)
+  Rendered layout layouts/application.html.erb (Duration: 56.0ms | Allocations: 2333)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 1.3ms | Allocations: 4342)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    18:   <% end %>
+    19: 
+    20:   <label for="title">Title</label>
+    21:   <input id="title" type="text" name="book[title]" value="<%= @book.title %>">
+    22: 
+    23:   <br>
+    24: 
+  
+app/views/books/_form.html.erb:21
+app/views/books/edit.html.erb:6
+app/controllers/books_controller.rb:37:in `edit'
+Started GET "/books/edit" for ::1 at 2021-09-02 11:56:59 +0200
+Processing by BooksController#edit as HTML
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 48.9ms | Allocations: 1926)
+  Rendered books/edit.html.erb within layouts/application (Duration: 70.4ms | Allocations: 2249)
+  Rendered layout layouts/application.html.erb (Duration: 73.0ms | Allocations: 2318)
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 1.8ms | Allocations: 4320)
+
+
+  
+ActionView::Template::Error (undefined method `author' for nil:NilClass):
+    23:   <br>
+    24: 
+    25:   <label for="author">Author</label>
+    26:   <input id="author" type="text" name="book[author]" value="<%= book.author %>">
+    27: 
+    28:   <br>
+    29: 
+  
+app/views/books/_form.html.erb:26
+app/views/books/edit.html.erb:6
+app/controllers/books_controller.rb:37:in `edit'
+Started GET "/" for ::1 at 2021-09-02 14:16:05 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | Allocations: 220)
+Completed 200 OK in 13ms (Views: 9.7ms | Allocations: 978)
+
+
+Started GET "/" for ::1 at 2021-09-02 14:16:07 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 45)
+Completed 200 OK in 5ms (Views: 3.3ms | Allocations: 454)
+
+
+Started GET "/books/2/edit" for ::1 at 2021-09-02 14:16:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/2/edit"):
+  
+Started GET "/" for ::1 at 2021-09-02 16:01:07 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 18.0ms | Allocations: 218)
+Completed 200 OK in 37ms (Views: 34.3ms | Allocations: 993)
+
+
+Started GET "/" for ::1 at 2021-09-02 16:01:07 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 45)
+Completed 200 OK in 4ms (Views: 2.4ms | Allocations: 454)
+
+
+Started GET "/index" for ::1 at 2021-09-02 16:01:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/show" for ::1 at 2021-09-02 16:01:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/show"):
+  
+Started GET "/books/index" for ::1 at 2021-09-02 16:02:07 +0200
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 12)
+  Rendered books/index.html.erb within layouts/application (Duration: 28.5ms | Allocations: 4503)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 190.4ms | Allocations: 7567)
+Completed 200 OK in 231ms (Views: 210.9ms | ActiveRecord: 11.7ms | Allocations: 9260)
+
+
+Started GET "/books/index" for ::1 at 2021-09-02 16:02:08 +0200
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 10)
+  Rendered books/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 961)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 151.2ms | Allocations: 3829)
+Completed 200 OK in 155ms (Views: 152.2ms | ActiveRecord: 1.4ms | Allocations: 4260)
+
+
+Started GET "/books/new" for ::1 at 2021-09-02 16:02:13 +0200
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 27.0ms | Allocations: 454)
+  Rendered books/new.html.erb within layouts/application (Duration: 39.5ms | Allocations: 776)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 186.6ms | Allocations: 3633)
+Completed 200 OK in 220ms (Views: 197.9ms | ActiveRecord: 5.6ms | Allocations: 7950)
+
+
+Started POST "/books/new" for ::1 at 2021-09-02 16:02:23 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/books/new"):
+  
+Started GET "/books/create" for ::1 at 2021-09-02 16:02:30 +0200
+Processing by BooksController#create as HTML
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 608)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: book
+Did you mean?  controller
+               action):
+  
+app/controllers/books_controller.rb:53:in `book_params'
+app/controllers/books_controller.rb:24:in `create'
+Started GET "/books/edit" for ::1 at 2021-09-02 16:03:10 +0200
+Processing by BooksController#edit as HTML
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 2.0ms | Allocations: 1579)
+  Rendered books/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1768)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 1836)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 2.4ms | Allocations: 3396)
+
+
+  
+ActionView::Template::Error (undefined method `author' for nil:NilClass):
+    23:   <br>
+    24: 
+    25:   <label for="author">Author</label>
+    26:   <input id="author" type="text" name="book[author]" value="<%= book.author %>">
+    27: 
+    28:   <br>
+    29: 
+  
+app/views/books/_form.html.erb:26
+app/views/books/edit.html.erb:6
+app/controllers/books_controller.rb:37:in `edit'
+Started GET "/books/edit" for ::1 at 2021-09-02 16:24:12 +0200
+Processing by BooksController#edit as HTML
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 3.1ms | Allocations: 1574)
+  Rendered books/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1672)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1740)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 13.7ms | Allocations: 6197)
+
+
+  
+ActionView::Template::Error (undefined method `author' for nil:NilClass):
+    23:   <br>
+    24: 
+    25:   <label for="author">Author</label>
+    26:   <input id="author" type="text" name="book[author]" value="<%= book.author %>">
+    27: 
+    28:   <br>
+    29: 
+  
+app/views/books/_form.html.erb:26
+app/views/books/edit.html.erb:6
+app/controllers/books_controller.rb:37:in `edit'
+Started GET "/books/1" for ::1 at 2021-09-02 16:24:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+Started GET "/books/1" for ::1 at 2021-09-02 16:24:56 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+Started GET "/books/1" for ::1 at 2021-09-02 16:34:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+Started GET "/books/index" for ::1 at 2021-09-02 16:34:25 +0200
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 10)
+  Rendered books/index.html.erb within layouts/application (Duration: 51.6ms | Allocations: 4404)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 226.0ms | Allocations: 7506)
+Completed 200 OK in 254ms (Views: 253.3ms | ActiveRecord: 18.4ms | Allocations: 8700)
+
+
+Started GET "/books/index" for ::1 at 2021-09-02 16:46:10 +0200
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 12)
+  Rendered books/index.html.erb within layouts/application (Duration: 54.1ms | Allocations: 4489)
+  Rendered layout layouts/application.html.erb (Duration: 984.4ms | Allocations: 17045)
+Completed 500 Internal Server Error in 1049ms (ActiveRecord: 18.2ms | Allocations: 18604)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3: <head>
+    4:   <title>Library</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  
+app/views/layouts/application.html.erb:6
+app/controllers/books_controller.rb:5:in `index'
+Started GET "/books/index" for ::1 at 2021-09-02 16:48:30 +0200
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 10)
+  Rendered books/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 960)
+  Rendered layout layouts/application.html.erb (Duration: 1113.0ms | Allocations: 20378)
+Completed 500 Internal Server Error in 1116ms (ActiveRecord: 1.2ms | Allocations: 20770)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3: <head>
+    4:   <title>Library</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  
+app/views/layouts/application.html.erb:6
+app/controllers/books_controller.rb:5:in `index'
+Started GET "/books/index" for ::1 at 2021-09-02 16:50:01 +0200
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 10)
+  Rendered books/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 1128)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.entry should be an non-empty object.
+   -> Multiple entry bundles are created. The key is the chunk name. The value can be a string or an array.
+
+  Rendered layout layouts/application.html.erb (Duration: 38620.3ms | Allocations: 5643)
+Completed 200 OK in 38652ms (Views: 38650.0ms | ActiveRecord: 1.1ms | Allocations: 6839)
+
+
+Started GET "/books/show" for ::1 at 2021-09-02 16:51:00 +0200
+Processing by BooksController#show as HTML
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.4ms | Allocations: 4599)
+
+
+  
+NameError (undefined local variable or method `books_url' for #<BooksController:0x00000000011f30>
+Did you mean?  books_new_url):
+  
+app/controllers/books_controller.rb:14:in `show'
+Started GET "/books/1/show" for ::1 at 2021-09-02 16:51:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1/show"):
+  
+Started GET "/books/1" for ::1 at 2021-09-02 16:52:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/books/1"):
+  
+Started GET "/books/new" for ::1 at 2021-09-02 16:52:45 +0200
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 17.7ms | Allocations: 4788)
+  Rendered books/new.html.erb within layouts/application (Duration: 49.9ms | Allocations: 5107)
+  Rendered layout layouts/application.html.erb (Duration: 52.5ms | Allocations: 5175)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.0ms | Allocations: 8850)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `books_url' for #<ActionView::Base:0x000000000129a8>
+Did you mean?  books_new_url):
+     9: <% if action == :edit %>
+    10:   <% action_url = book_url(book)%>
+    11: <% else %>
+    12:   <% action_url = books_url %>
+    13: <% end %>
+    14: 
+    15: <form action="<%= action_url %>" method="post">
+  
+app/views/books/_form.html.erb:12
+app/views/books/new.html.erb:6
+app/controllers/books_controller.rb:20:in `new'
+Started GET "/books/new" for ::1 at 2021-09-02 16:53:32 +0200
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 12.7ms | Allocations: 4425)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 4523)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4591)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 4988)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `books_url' for #<ActionView::Base:0x00000000012cc8>
+Did you mean?  books_new_url):
+     9: <% if action == :edit %>
+    10:   <% action_url = book_url(book)%>
+    11: <% else %>
+    12:   <% action_url = books_url %>
+    13: <% end %>
+    14: 
+    15: <form action="<%= action_url %>" method="post">
+  
+app/views/books/_form.html.erb:12
+app/views/books/new.html.erb:6
+app/controllers/books_controller.rb:20:in `new'
+Started GET "/books/new" for ::1 at 2021-09-02 16:53:40 +0200
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 12.3ms | Allocations: 4425)
+  Rendered books/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 4523)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 4591)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 4988)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `books_url' for #<ActionView::Base:0x00000000012f98>
+Did you mean?  books_new_url):
+     9: <% if action == :edit %>
+    10:   <% action_url = book_url(book)%>
+    11: <% else %>
+    12:   <% action_url = books_new_url %>
+    13: <% end %>
+    14: 
+    15: <form action="<%= action_url %>" method="post">
+  
+app/views/books/_form.html.erb:12
+app/views/books/new.html.erb:6
+app/controllers/books_controller.rb:20:in `new'
+Started GET "/books/new" for ::1 at 2021-09-02 16:54:19 +0200
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 64.2ms | Allocations: 4780)
+  Rendered books/new.html.erb within layouts/application (Duration: 80.6ms | Allocations: 5104)
+  Rendered layout layouts/application.html.erb (Duration: 85.3ms | Allocations: 5173)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.0ms | Allocations: 6336)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `books_url' for #<ActionView::Base:0x00000000013330>
+Did you mean?  books_new_url):
+     9: <% if action == :edit %>
+    10:   <% action_url = books_url(book)%>
+    11: <% else %>
+    12:   <% action_url = books_url %>
+    13: <% end %>
+    14: 
+    15: <form action="<%= action_url %>" method="post">
+  
+app/views/books/_form.html.erb:12
+app/views/books/new.html.erb:6
+app/controllers/books_controller.rb:20:in `new'
+Started GET "/books/new" for ::1 at 2021-09-02 16:55:19 +0200
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 12.9ms | Allocations: 4417)
+  Rendered books/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 4515)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4583)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 4981)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `books_url' for #<ActionView::Base:0x00000000013768>
+Did you mean?  books_new_url):
+     9: <% if action == :edit %>
+    10:   <% action_url = book_url(book)%>
+    11: <% else %>
+    12:   <% action_url = books_new_url %>
+    13: <% end %>
+    14: 
+    15: <form action="<%= action_url %>" method="post">
+  
+app/views/books/_form.html.erb:12
+app/views/books/new.html.erb:6
+app/controllers/books_controller.rb:20:in `new'

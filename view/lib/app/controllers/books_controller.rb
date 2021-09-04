@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     if @book
       render :show
     else
-     redirect_to books_new_url
+      redirect_to books_url
     end
   end
 
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
 
     if @book.save
       # show user the book show page
-      redirect_to books_new_url(@book)
+      redirect_to book_url(@book)
     else
       # show user the new book form
       render :new
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
     @book = Book.find_by(id: params[:id])
 
     if @book.update_attributes(book_params)
-      redirect_to books_new_url(@book)
+      redirect_to book_url(@book)
     else
       render :edit
     end
