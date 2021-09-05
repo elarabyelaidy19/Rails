@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birth_date: 2021-09-05
+  color: MyString
+  name: MyString
+  color: MyString
+  desicription: MyText
+
+two:
+  birth_date: 2021-09-05
+  color: MyString
+  name: MyString
+  color: MyString
+  desicription: MyText
