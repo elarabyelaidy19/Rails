@@ -603,3 +603,202 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 215ms (Views: 162.7ms | ActiveRecord: 2.4ms | Allocations: 6149)
 
 
+Started GET "/posts/2" for ::1 at 2021-09-06 11:04:39 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (3.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 166)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 198.8ms | Allocations: 4510)
+Completed 200 OK in 277ms (Views: 214.5ms | ActiveRecord: 22.6ms | Allocations: 9545)
+
+
+Started GET "/posts/index" for ::1 at 2021-09-06 11:05:25 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `show'
+Completed 404 Not Found in 8ms (ActiveRecord: 1.0ms | Allocations: 1728)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Post with 'id'=index:
+  app/controllers/posts_controller.rb:22:in `show'
+
+Started POST "/__better_errors/e4b0059d5a740ba1/variables" for ::1 at 2021-09-06 11:05:25 +0200
+Started GET "/posts/" for ::1 at 2021-09-06 11:05:36 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 2501)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 2570)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 3261)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <% content_for :page_title, "Index">
+<section class="section"> 
+  <div class="container"> 
+    <% @posts.each do |post| %> 
+      <div class="card"> 
+        <div class="card-content"> 
+          <div class="media">
+            <div class="media-content"> 
+              <p class="title is-4"> <%= link_to post.title, post %></p> 
+            </div> 
+          </div> 
+          <div class="content"> 
+            <%= post.content %> 
+          </div> 
+        </div> 
+      </div> 
+    <% end %> 
+  </div> 
+</section>:
+
+Started POST "/__better_errors/be561b6caee260a5/variables" for ::1 at 2021-09-06 11:05:37 +0200
+Started GET "/posts" for ::1 at 2021-09-06 11:05:48 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2467)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2536)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 3093)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <% content_for :page_title, "Index">
+<section class="section"> 
+  <div class="container"> 
+    <% @posts.each do |post| %> 
+      <div class="card"> 
+        <div class="card-content"> 
+          <div class="media">
+            <div class="media-content"> 
+              <p class="title is-4"> <%= link_to post.title, post %></p> 
+            </div> 
+          </div> 
+          <div class="content"> 
+            <%= post.content %> 
+          </div> 
+        </div> 
+      </div> 
+    <% end %> 
+  </div> 
+</section>:
+
+Started POST "/__better_errors/634d07c17810dd19/variables" for ::1 at 2021-09-06 11:05:48 +0200
+Started GET "/posts" for ::1 at 2021-09-06 11:06:55 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 23.5ms | Allocations: 1085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 185.2ms | Allocations: 5409)
+Completed 200 OK in 213ms (Views: 198.7ms | ActiveRecord: 1.9ms | Allocations: 6767)
+
+
+Started GET "/posts/new" for ::1 at 2021-09-06 11:09:03 +0200
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 1295.6ms | Allocations: 17570)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1456.6ms | Allocations: 21780)
+Completed 200 OK in 1521ms (Views: 1483.9ms | ActiveRecord: 0.0ms | Allocations: 23037)
+
+
+Started POST "/posts" for ::1 at 2021-09-06 11:10:12 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"second post", "content"=>"second post"}, "commit"=>"First button"}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (42.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "second post"], ["content", "second post"], ["created_at", "2021-09-06 09:10:12.971126"], ["updated_at", "2021-09-06 09:10:12.971126"]]
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (30.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 94ms (ActiveRecord: 74.6ms | Allocations: 3259)
+
+
+Started GET "/posts/5" for ::1 at 2021-09-06 11:10:13 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 161)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 177.5ms | Allocations: 4155)
+Completed 200 OK in 199ms (Views: 179.2ms | ActiveRecord: 1.4ms | Allocations: 5421)
+
+
+Started GET "/posts/5" for ::1 at 2021-09-06 11:11:07 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.8ms | Allocations: 180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 212.9ms | Allocations: 4518)
+Completed 200 OK in 253ms (Views: 230.0ms | ActiveRecord: 1.9ms | Allocations: 6439)
+
+
+Started GET "/" for ::1 at 2021-09-06 11:11:25 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 228.7ms | Allocations: 5091)
+Completed 200 OK in 245ms (Views: 228.3ms | ActiveRecord: 2.2ms | Allocations: 5814)
+
+
+Started GET "/posts/5" for ::1 at 2021-09-06 11:12:50 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.1ms | Allocations: 158)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 172.9ms | Allocations: 4504)
+Completed 200 OK in 211ms (Views: 190.4ms | ActiveRecord: 1.6ms | Allocations: 6406)
+
+
+Started GET "/" for ::1 at 2021-09-06 11:12:57 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 177.4ms | Allocations: 5088)
+Completed 200 OK in 194ms (Views: 178.0ms | ActiveRecord: 1.3ms | Allocations: 5812)
+
+
+Started GET "/posts/3" for ::1 at 2021-09-06 11:12:58 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 46)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 152.6ms | Allocations: 4048)
+Completed 200 OK in 162ms (Views: 154.4ms | ActiveRecord: 1.6ms | Allocations: 5189)
+
+
