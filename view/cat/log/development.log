@@ -1,0 +1,965 @@
+  [1m[35m (1958.0ms)[0m  [1m[35mCREATE DATABASE "cat_development" ENCODING = 'unicode'[0m
+  [1m[35m (1641.6ms)[0m  [1m[35mCREATE DATABASE "cat_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "cat_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "cat_test" ENCODING = 'unicode'[0m
+  [1m[35m (262.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (181.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(368334614261974815)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCats (20210905091851)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(368334614261974815)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(368334614261974815)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCats (20210905091851)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (245.9ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "desicription" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210905091851"]]
+  [1m[36mTRANSACTION (30.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-05 09:57:41.257637"], ["updated_at", "2021-09-05 09:57:41.257637"]]
+  [1m[36mTRANSACTION (42.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(368334614261974815)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-09-05 12:06:36 +0200
+Started GET "/" for ::1 at 2021-09-05 12:06:36 +0200
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 117.5ms | Allocations: 525)
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 80.7ms | Allocations: 354)
+Completed 200 OK in 365ms (Views: 189.2ms | ActiveRecord: 0.0ms | Allocations: 4634)
+
+
+Completed 200 OK in 358ms (Views: 185.6ms | ActiveRecord: 0.0ms | Allocations: 4402)
+
+
+Started GET "/cats" for ::1 at 2021-09-05 12:07:12 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/cats"):
+  
+Started GET "/cats/index" for ::1 at 2021-09-05 12:07:20 +0200
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1365)
+
+
+  
+NoMethodError (undefined method `all' for Cat:Module):
+  
+app/controllers/cats_controller.rb:3:in `index'
+Started GET "/index" for ::1 at 2021-09-05 12:07:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/index" for ::1 at 2021-09-05 12:09:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/cats/show" for ::1 at 2021-09-05 12:09:20 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1287)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:09:29 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1249)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:09:34 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1251)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/1" for ::1 at 2021-09-05 12:09:53 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1249)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/1" for ::1 at 2021-09-05 12:11:23 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1249)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/index" for ::1 at 2021-09-05 12:11:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/cats/index" for ::1 at 2021-09-05 12:11:38 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1249)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:12:53 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1256)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:13:14 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1249)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/catsindex" for ::1 at 2021-09-05 12:13:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/catsindex"):
+  
+Started GET "/cat/index" for ::1 at 2021-09-05 12:13:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/cat/index"):
+  
+Started GET "/cats/index" for ::1 at 2021-09-05 12:13:34 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1249)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:14:49 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering layout layouts/application.html.erb
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 114)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /mnt/f/github/Rails/view/cat/public/packs
+[Webpacker] Hash: e2a8a876c5815bee1e21
+Version: webpack 4.46.0
+Time: 30827ms
+Built at: 09/05/2021 12:15:53 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e421b4aa3f716bebdab1.js    125 KiB  application  [emitted] [immutable]  application
+js/application-e421b4aa3f716bebdab1.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-e421b4aa3f716bebdab1.js js/application-e421b4aa3f716bebdab1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 64304.6ms | Allocations: 14206)
+Completed 200 OK in 64334ms (Views: 64322.5ms | ActiveRecord: 0.0ms | Allocations: 15310)
+
+
+Started GET "/cats/index" for ::1 at 2021-09-05 12:16:51 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CatsController
+Did you mean?  index):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.2) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:17:12 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CatsController
+Did you mean?  index):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.2) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/cats/show" for ::1 at 2021-09-05 12:17:17 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CatsController
+Did you mean?  index):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.2) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/cats/show" for ::1 at 2021-09-05 12:17:58 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CatsController
+Did you mean?  index):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.2) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:18:04 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CatsController
+Did you mean?  index):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.2) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/index" for ::1 at 2021-09-05 12:18:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/cats/index" for ::1 at 2021-09-05 12:18:34 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for CatsController
+Did you mean?  index):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.4.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.2) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.4.0) lib/puma/configuration.rb:249:in `call'
+puma (5.4.0) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.4.0) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.4.0) lib/puma/request.rb:76:in `handle_request'
+puma (5.4.0) lib/puma/server.rb:440:in `process_client'
+puma (5.4.0) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:19:12 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1308)
+
+
+  
+NoMethodError (undefined method `find_by' for Cat:Module):
+  
+app/controllers/cats_controller.rb:8:in `show'
+Started GET "/cats/index" for ::1 at 2021-09-05 12:19:51 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 363)
+
+
+Started GET "/cats" for ::1 at 2021-09-05 12:19:52 +0200
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1297)
+
+
+  
+NoMethodError (undefined method `all' for Cat:Module):
+  
+app/controllers/cats_controller.rb:3:in `index'
+Started GET "/cats" for ::1 at 2021-09-05 12:20:08 +0200
+Processing by CatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 161.0ms | Allocations: 3208)
+Completed 200 OK in 191ms (Views: 189.4ms | ActiveRecord: 0.0ms | Allocations: 4423)
+
+
+Started GET "/cats" for ::1 at 2021-09-05 12:21:28 +0200
+Processing by CatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 146.6ms | Allocations: 2948)
+Completed 200 OK in 151ms (Views: 149.4ms | ActiveRecord: 0.0ms | Allocations: 3553)
+
+
+Started GET "/cats/show" for ::1 at 2021-09-05 12:21:39 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering layout layouts/application.html.erb
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 179.4ms | Allocations: 2966)
+Completed 200 OK in 190ms (Views: 188.6ms | ActiveRecord: 0.0ms | Allocations: 3511)
+
+
+Started GET "/cats/index" for ::1 at 2021-09-05 12:21:45 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering layout layouts/application.html.erb
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 182.8ms | Allocations: 2897)
+Completed 200 OK in 186ms (Views: 184.9ms | ActiveRecord: 0.0ms | Allocations: 3316)
+
+
+Started GET "/cats/index" for ::1 at 2021-09-05 12:21:45 +0200
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering layout layouts/application.html.erb
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 162.9ms | Allocations: 2905)
+Completed 200 OK in 167ms (Views: 165.5ms | ActiveRecord: 0.0ms | Allocations: 3323)
+
+
+Started GET "/cats" for ::1 at 2021-09-05 12:21:51 +0200
+Processing by CatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cats/index.html.erb within layouts/application
+  Rendered cats/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 39)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 148.3ms | Allocations: 2895)
+Completed 200 OK in 151ms (Views: 150.1ms | ActiveRecord: 0.0ms | Allocations: 3313)
+
+
+Started GET "/cats" for ::1 at 2021-09-05 12:28:23 +0200
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 1297)
+
+
+  
+NoMethodError (undefined method `all' for Cat:Module):
+  
+app/controllers/cats_controller.rb:3:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(368334614261974815)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateKitties (20210905105010)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (373.6ms)[0m  [1m[35mCREATE TABLE "kitties" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "desicription" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210905105010"]]
+  [1m[36mTRANSACTION (51.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(368334614261974815)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cats" for ::1 at 2021-09-05 13:00:35 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/cats"):
+  
+Started GET "/" for ::1 at 2021-09-05 13:00:39 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.6ms | Allocations: 223)
+Completed 200 OK in 29ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 2142)
+
+
+Started GET "/" for ::1 at 2021-09-05 13:00:40 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.9ms | Allocations: 219)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 1005)
+
+
+Started GET "/" for ::1 at 2021-09-05 13:00:46 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/elarabyelaidy/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 45)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 457)
+
+
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:00:58 +0200
+Processing by KittiesController#index as HTML
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 1292)
+
+
+  
+SyntaxError (/mnt/f/github/Rails/view/cat/app/models/kitty.rb:8: syntax error, unexpected `in'
+..., presence: true, inclusion {in: GENDER} 
+...                             ^~
+):
+  
+app/models/kitty.rb:8: syntax error, unexpected `in'
+app/models/kitty.rb:8: syntax error, unexpected `in'
+app/models/kitty.rb:8: syntax error, unexpected `in'
+app/controllers/kitties_controller.rb:3:in `index'
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:01:50 +0200
+Processing by KittiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/index.html.erb within layouts/application
+  Rendered kitties/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1258.1ms | Allocations: 15445)
+Completed 200 OK in 1343ms (Views: 1279.5ms | ActiveRecord: 0.0ms | Allocations: 17462)
+
+
+Started GET "/kitties/show" for ::1 at 2021-09-05 13:01:59 +0200
+Processing by KittiesController#show as HTML
+Completed 404 Not Found in 13ms (ActiveRecord: 4.6ms | Allocations: 1446)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Kitty without an ID):
+  
+app/controllers/kitties_controller.rb:8:in `show'
+Started GET "/kitties/1/show" for ::1 at 2021-09-05 13:02:11 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/kitties/1/show"):
+  
+Started GET "/kitties/1" for ::1 at 2021-09-05 13:02:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/kitties/1"):
+  
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:03:48 +0200
+Processing by KittiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/index.html.erb within layouts/application
+  Rendered kitties/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1593)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 1662)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 2825)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>Cats</h1> 
+    2: <ul>
+    3:   <% @cats.each do |cat| %>
+    4:     <li><a href='<%= cat_path(cat) %>'><%= cat.name %></a>
+    5:   <% end %>
+    6: </ul>
+  
+app/views/kitties/index.html.erb:3
+app/controllers/kitties_controller.rb:4:in `index'
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:04:36 +0200
+Processing by KittiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/index.html.erb within layouts/application
+  [1m[36mKitty Load (1.4ms)[0m  [1m[34mSELECT "kitties".* FROM "kitties"[0m
+  ↳ app/views/kitties/index.html.erb:3
+  Rendered kitties/index.html.erb within layouts/application (Duration: 25.4ms | Allocations: 2196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 189.8ms | Allocations: 5300)
+Completed 200 OK in 213ms (Views: 205.2ms | ActiveRecord: 7.0ms | Allocations: 6497)
+
+
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:08:00 +0200
+Processing by KittiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/index.html.erb within layouts/application
+  [1m[36mKitty Load (1.7ms)[0m  [1m[34mSELECT "kitties".* FROM "kitties"[0m
+  ↳ app/views/kitties/index.html.erb:3
+  Rendered kitties/index.html.erb within layouts/application (Duration: 18.7ms | Allocations: 1736)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 301.2ms | Allocations: 4819)
+Completed 200 OK in 356ms (Views: 323.8ms | ActiveRecord: 5.8ms | Allocations: 6727)
+
+
+Started GET "/kitties/show" for ::1 at 2021-09-05 13:08:08 +0200
+Processing by KittiesController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/show.html.erb within layouts/application
+  Rendered kitties/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1548)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 1616)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 2129)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     7:       <th>Color</th>
+     8:       <th>Description</th>
+     9:     </tr>
+    10:       <td><%= @kitty.name %></td>
+    11:       <td><%= @kitty.age %></td>
+    12:       <td><%= @kitty.sex %></td>
+    13:       <td><%= @kitty.birth_date %></td>
+  
+app/views/kitties/show.html.erb:10
+app/controllers/kitties_controller.rb:9:in `show'
+Started GET "/kitties/show" for ::1 at 2021-09-05 13:09:10 +0200
+Processing by KittiesController#show as HTML
+Completed 404 Not Found in 45ms (ActiveRecord: 10.5ms | Allocations: 1764)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Kitty without an ID):
+  
+app/controllers/kitties_controller.rb:8:in `show'
+Started GET "/kitties/show/1" for ::1 at 2021-09-05 13:09:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/kitties/show/1"):
+  
+Started GET "/kitties/1" for ::1 at 2021-09-05 13:09:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/kitties/1"):
+  
+Started GET "/kitties/show" for ::1 at 2021-09-05 13:09:52 +0200
+Processing by KittiesController#show as HTML
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 613)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Kitty without an ID):
+  
+app/controllers/kitties_controller.rb:8:in `show'
+Started GET "/kitties/show" for ::1 at 2021-09-05 13:10:15 +0200
+Processing by KittiesController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/show.html.erb within layouts/application
+  Rendered kitties/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1369)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 1438)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 2008)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     7:       <th>Color</th>
+     8:       <th>Description</th>
+     9:     </tr>
+    10:       <td><%= @kitty.name %></td>
+    11:       <td><%= @kitty.age %></td>
+    12:       <td><%= @kitty.sex %></td>
+    13:       <td><%= @kitty.birth_date %></td>
+  
+app/views/kitties/show.html.erb:10
+app/controllers/kitties_controller.rb:9:in `show'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(368334614261974815)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateKittyRentalRequests (20210905112419)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(368334614261974815)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(368334614261974815)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateKittyRentalRequests (20210905112419)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (215.3ms)[0m  [1m[35mCREATE TABLE "kitty_rental_requests" ("id" bigserial primary key, "kitty_id" integer NOT NULL, "end_date" date NOT NULL, "start_date" date NOT NULL, "status" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (62.9ms)[0m  [1m[35mCREATE INDEX "index_kitty_rental_requests_on_kitty_id" ON "kitty_rental_requests" ("kitty_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210905112419"]]
+  [1m[36mTRANSACTION (67.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(368334614261974815)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/kitties/show" for ::1 at 2021-09-05 13:30:18 +0200
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by KittiesController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/show.html.erb within layouts/application
+  Rendered kitties/show.html.erb within layouts/application (Duration: 28.8ms | Allocations: 1633)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 1702)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms | Allocations: 2882)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1><%= @cat.name %></h1>
+    2: 
+    3: <table>
+    4:   <tr>
+  
+app/views/kitties/show.html.erb:1
+app/controllers/kitties_controller.rb:9:in `show'
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:30:35 +0200
+Processing by KittiesController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/show.html.erb within layouts/application
+  Rendered kitties/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1387)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1455)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1835)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1><%= @cat.name %></h1>
+    2: 
+    3: <table>
+    4:   <tr>
+  
+app/views/kitties/show.html.erb:1
+app/controllers/kitties_controller.rb:9:in `show'
+Started GET "/kitties" for ::1 at 2021-09-05 13:30:42 +0200
+Processing by KittiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/index.html.erb within layouts/application
+  Rendered kitties/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 1547)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 1615)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms | Allocations: 2811)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>Cats upon cats!</h1>
+    2: 
+    3: <ul>
+    4:   <% @kitty.each do |kitty| %>
+    5:     <li><a href="<%= kitty_url(kitty) %>"><%= kitty.name %></a></li>
+    6:   <% end %>
+    7: </ul>
+  
+app/views/kitties/index.html.erb:4
+app/controllers/kitties_controller.rb:4:in `index'
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:48:30 +0200
+Processing by KittiesController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/show.html.erb within layouts/application
+  Rendered kitties/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1387)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1455)
+Completed 500 Internal Server Error in 6ms (Allocations: 1833)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1><%= @cat.name %></h1>
+    2: 
+    3: <table>
+    4:   <tr>
+  
+app/views/kitties/show.html.erb:1
+app/controllers/kitties_controller.rb:9:in `show'
+Started GET "/kitties/index" for ::1 at 2021-09-05 13:49:34 +0200
+Processing by KittiesController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering layout layouts/application.html.erb
+  Rendering kitties/show.html.erb within layouts/application
+  Rendered kitties/show.html.erb within layouts/application (Duration: 40.0ms | Allocations: 1642)
+  Rendered layout layouts/application.html.erb (Duration: 44.2ms | Allocations: 1711)
+Completed 500 Internal Server Error in 74ms (Allocations: 2855)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1><%= @kitty.name %></h1>
+    2: 
+    3: <table>
+    4:   <tr>
+  
+app/views/kitties/show.html.erb:1
+app/controllers/kitties_controller.rb:9:in `show'

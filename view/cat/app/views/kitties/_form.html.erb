@@ -1,0 +1,58 @@
+<% action = (kitty.persisted? ? kitty_url(kitty) : kitties_url) %>
+<% method = (kitty.persisted? ? :patch : :post) %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <label for="kitty_name">Name</label>
+  <input
+    type="text"
+    name="kitty[name]"
+    id="kitty_name"
+    value="<%= kitty.name %>">
+
+  <label for="kitty_birth_date">Birth date</label>
+  <input
+    type="date"
+    name="kitty[birth_date]"
+    id="kitty_birth_date"
+    value="<%= kitty.birth_date %>">
+  <br>
+
+  <label for="kitty_color">Color</label>
+  <select name="kitty[color]" id="kitty_color">
+  <option disabled selected>-- select a color --</option>
+    <% kitty::kitty_COLORS.each do |color| %>
+      <option
+        <%= kitty.color == color ? "selected" : "" %>
+        value="<%= color %>">
+        <%= color.upcase %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+
+  <input
+    type="radio"
+    name="kitty[sex]"
+    value="M"
+    id="kitty_sex_male"
+    <%= kitty.sex == "M" ? "checked" : "" %>>
+  <label for="kitty_sex_male">Male</label>
+  <input
+    type="radio"
+    name="kitty[sex]"
+    value="F"
+    id="kitty_sex_female"
+    <%= kitty.sex == "F" ? "checked" : "" %>>
+  <label for="kitty_sex_female">Female</label>
+  <br>
+
+  <label>
+    Description
+    <textarea name="kitty[description]"><%= kitty.description %></textarea>
+  </label>
+
+  <% submit_text = (kitty.persisted? ? 'Update' : 'Create') + ' kitty!' %>
+  <input type="submit" value="<%= submit_text %>">
+</form>

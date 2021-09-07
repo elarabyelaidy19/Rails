@@ -1,0 +1,37 @@
+<h1>Create Rental Request</h1>
+
+<%= render "shared/errors" %>
+
+<form action="<%= kitty_rental_requests_url %>" method="post">
+  <label for="kitty_rental_request_kitty_id">kitty</label>
+  <select name="kitty_rental_request[kitty_id]"
+          id="kitty_rental_request_kitty_id">
+    <option></option>
+    <% kitty.all.each do |kitty| %>
+      <% selected = @rental_request.kitty_id == kitty.id %>
+      <option <%= selected ? "selected" : "" %>
+              value="<%= kitty.id %>">
+        <%= kitty.name %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+
+  <label for="kitty_rental_request_start_date">Start Date</label>
+  <input
+    type="date"
+    name="kitty_rental_request[start_date]"
+    value="<%= @rental_request.start_date %>"
+    id="kitty_rental_request_start_date">
+  <br>
+
+  <label for="kitty_rental_request_end_date">End Date</label>
+  <input
+    type="date"
+    name="kitty_rental_request[end_date]"
+    value="<%= @rental_request.end_date %>"
+    id="kitty_rental_request_end_date">
+  <br>
+
+  <input type="submit">
+</form>

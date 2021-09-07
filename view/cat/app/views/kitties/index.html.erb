@@ -1,0 +1,9 @@
+<h1>Cats upon cats!</h1>
+
+<ul>
+  <% @kitty.each do |kitty| %>
+    <li><a href="<%= kitty_url(kitty) %>"><%= kitty.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="<%= new_kitty_url %>">Create cat</a>
