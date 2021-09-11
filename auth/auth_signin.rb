@@ -66,6 +66,24 @@ class User < ApplicationController
  
 
 end 
+
+# Application controller commons for all   
+
+class ApplicationController < ApplicationController::Base 
+  
+  # This will make current_user available in all views.
+  helpe_method :current_user
+  # create session token and assign it to the current user HELPER METHOD
+  def login!(user) 
+    @current_user = user 
+    session[:session_token] = user.session_token 
+  end  
+
+  # create a helper method to using it throught in view  
+  def current_user 
+    return nil if session[:session_token].nil?  
+    @current_user ||= User.find_by(session_token: session[:session_token]) 
+  end 
 #######################################
 # VIEWS 
 #######################################
