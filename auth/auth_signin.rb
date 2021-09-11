@@ -54,35 +54,68 @@ class SessionController < ApplicationController
     if user.nil? 
       render json: 'credintials are wrong' 
     else  
-      render json: "welcome #{user.username}"  
+      login!(user) 
+      redirect_to user_path(user)   
     end 
+  end  
+
+  def destroy 
+    logout! 
+    redirect_to new_session_url  
   end 
 end 
 
-############### 
+##################################
 # User controller  
- 
+################################## 
 class User < ApplicationController 
- 
+  # callback for redirect unsigned user to logging before any action 
+  before_action :require_current_user!, except: [:create, :new]
 
+  def creat 
+    user =  User.new(params[:user]) 
+
+    if @user.save 
+      login!(@user) 
+      redirect_to user_url(@user) 
+    else 
+      render json: @user.errors.full_messages 
+    end 
+  end
+
+  
 end 
 
+############################################
 # Application controller commons for all   
-
+############################################
 class ApplicationController < ApplicationController::Base 
   
   # This will make current_user available in all views.
   helpe_method :current_user
+
   # create session token and assign it to the current user HELPER METHOD
   def login!(user) 
     @current_user = user 
     session[:session_token] = user.session_token 
   end  
 
+  # create log out session and reset the session 
+  def logout! 
+    # invalidate the old session token
+    current_user.try(:reset_session_token) 
+    session[:session_token] = nil 
+  end 
+
   # create a helper method to using it throught in view  
   def current_user 
     return nil if session[:session_token].nil?  
     @current_user ||= User.find_by(session_token: session[:session_token]) 
+  end  
+
+  # redirect_to a creat/new form while user not logged in 
+  def require_current_user! 
+    redirect_to new_session_url if current_user.nil?
   end 
 #######################################
 # VIEWS 
@@ -120,4 +153,29 @@ class ApplicationController < ApplicationController::Base
 <!-- app/views/users/show.html.erb -->
 <h1><%= @user.username %></h1>
 
-<p>Hello, dear user!</p>
+<p>Hello, dear user!</p> 
+
+############ 
+# LOG OUT PAGE 
+<!-- app/views/layouts/application.html.erb -->
+
+<!-- ... -->
+<% if !current_user.nil? %>
+  <ul>
+    <li>Logged in as: <%= current_user.username %></li>
+    <li>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+        <input type="hidden" value="delete" name="_method" />
+        <input type="submit" value="Logout" />
+      </form>
+    </li>
+  </ul>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
