@@ -40,12 +40,16 @@ BCrypt::Paswword.new(u.password_digest).is_password?('my_password')
 # database does'nt save the password itself 
 class User < ApplicationRecord 
 
-  def password=(password) 
-    self.password_digest = BCrypt::Paswword.creat(password) 
-  end  
+  #def password=(password) 
+   # self.password_digest = BCrypt::Paswword.creat(password) 
+  #end   
+  ## == 
+  attr_reader :password 
 
+  validates :username, presence: true  
+  validates :password_digest, presence: { message: 'password can\'t be empty' }
+  validates :password, presence: length: { minimum: 6, allow_nil: true }
   # Verifying the password 
-
   def is_password?(password) 
     BCrypt::Paswword.new(self.password_digest).is_password?(password) 
   end 
@@ -78,4 +82,49 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-end
+end 
+
+###############################################
+# add View and Partial 
+############################################### 
+
+# <!-- app/views/users/new.html.erb -->
+
+<h1>Create User</h1>
+
+<%= render "form", user: @user %>
+
+# app/views/users/_form.html.erb   
+
+<% action = (user.persisted? ? user_url(user) : users_url) %>
+<% method = (user.persisted? ? "patch" : "post") %>
+<% message = (user.persisted? ? "Update user" : "Create user") %>
+
+<form action="<%= action %>" method="post">
+  <input
+     name="_method"
+     type="hidden"
+     value="<%= method %>">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <label for="user_username">Username</label>
+  <input
+     id="user_username"
+     name="user[username]"
+     type="text">
+  <br>
+
+  <label for="user_password">Password</label>
+  <input
+     id="user_password"
+     name="user[password]"
+     type="password">
+  <br>
+
+  <input type="submit" value="<%= message %>">
+</form> 
+
+
