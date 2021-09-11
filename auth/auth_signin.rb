@@ -2,11 +2,32 @@
 
 class User < ApplicationRecord 
 
+  validates :session_token, presence: true 
+  after_initialize :ensure_session_token 
+  
+  # genrte session token 
+  def self.generate_session_token
+    SecureRandom::urlsafe_base64(16) 
+  end 
+
+  # reset session token  
+  def self.reset_session_token 
+    self.session_token = self.class.generate_session_token 
+    self.save! 
+    self.session_token
+  end 
+
   # verifies the username/password 
   def self.find_by_credentials(username, password) 
     user = User.find_by(username: username) 
     return nil if user.nil? 
     user.is_password?(password) ? user : nil 
+  end  
+
+  private 
+  # ensuring every log in has a session token 
+  def ensure_session_token  
+    self.session_token =|| self.class.generate_session_token 
   end 
 end  
 
