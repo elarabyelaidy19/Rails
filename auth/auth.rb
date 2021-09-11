@@ -36,5 +36,18 @@ BCrypt::Paswword.new(u.password_digest).is_password?('my_password')
 # Write User#password= And User#is_password? 
 #############################################
 
+# set the password_digest column in the database 
+# database does'nt save the password itself 
+class User < ApplicationRecord 
 
+  def password=(password) 
+    self.password_digest = BCrypt::Paswword.creat(password) 
+  end  
+
+  # Verifying the password 
+
+  def is_password?(password) 
+    BCrypt::Paswword.new(self.password_digest).is_password?(password) 
+  end 
+end 
 
