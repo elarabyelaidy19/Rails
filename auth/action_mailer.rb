@@ -14,6 +14,9 @@ class UserMialer < ActionMailer
     @url = 'http://example.com/login' 
     # reciver and the message 
     mail(to: user.email, subject: 'welcome user') 
+    
+    # Adding Attachments  
+    attachments['filename.jpeg'] = File.read('/path/to/filename.jpeg') 
   end  
 
   def deliver_now 
@@ -68,7 +71,38 @@ end
 
 # Sending out an email often takes up to 1sec. This is kind of slow. In particular, 
 # if your Rails app is sending a mail as part of a controller action, 
-# the user will have to wait an extra second for the HTTP response to be sent.
+# the user will have to wait an extra second for the HTTP response to be sent. 
+
+
+###########################################################
+# EMBED LINK IN EMAIL VIEWS
+###########################################################
+
+# app/config/environments/development.rb
+config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+# app/config/environments/production.rb
+config.action_mailer.default_url_options = { host: 'www.production-domain.com' }  
+
+
+#############################################
+# LETTER OPENER
+#############################################
+
+# When running the development environment (your local machine), 
+# instead of sending an email out to the real world, letter_opener will instead pop open the "sent" email in the browser.
+
+Setup is two lines:
+
+# Gemfile
+gem 'letter_opener', group: :development
+
+# config/environments/development.rb
+config.action_mailer.delivery_method = :letter_opener
+
+##########################################################
+# EMAIL TEXT 
+##########################################################
 <%# app/views/user_mailer/welcome_email.text.erb %>
 
 Welcome to example.com, <%= @user.name %>
@@ -79,4 +113,5 @@ your username is: <%= @user.login %>.
 
 To login to the site, just follow this link: <%= @url %>.
 
-Thanks for joining and have a great day!
+Thanks for joining and have a great day! 
+
