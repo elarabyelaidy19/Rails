@@ -3,6 +3,10 @@ rails g mailer UserMialer
 
 # The content of the email lives in a view (more in a sec) which will be rendered.
 # You can also set cc and bcc attributes. To send to multiple emails, use an array of email strings. 
+#########################################################
+# USERMAILERS 
+#########################################################
+
 
 class UserMialer < ActionMailer 
   # sender 
@@ -23,6 +27,10 @@ class UserMialer < ActionMailer
   end 
 end 
 
+#############################################################
+# USERCONTROLLER
+############################################################# 
+  
 
 class UsersController < ApplicationController 
 
@@ -61,7 +69,9 @@ end
 </html> 
 
 
-####### 
+###############################################################
+
+
 # You  should have a text version of the mail to avoid flagged as a spam  
 # notice the extension of the file .text.erb  
 
@@ -77,6 +87,7 @@ end
 ###########################################################
 # EMBED LINK IN EMAIL VIEWS
 ###########################################################
+
 
 # app/config/environments/development.rb
 config.action_mailer.default_url_options = { host: 'localhost:3000' }
