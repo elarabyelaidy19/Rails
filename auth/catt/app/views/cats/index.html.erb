@@ -1,2 +1,19 @@
-<h1>Cats#index</h1>
-<p>Find me in app/views/cats/index.html.erb</p>
+<section class="cat-index-holder">
+  <nav>
+    <h1>bssssssss</h1>
+    <a href="<%= new_cat_url %>">
+      Add Besh
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+  </nav>
+  <section class="cat-index">
+    <% @cats.each do |cat| %>
+      <div class="cat-index-item">
+        <div>
+          <img src="http://placekitten.com/g/231/231" >
+          <br /><a href="<%= cat_url(cat) %>">Rent <%= cat.name %></a>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</section>

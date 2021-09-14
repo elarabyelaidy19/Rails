@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'sessions/Users'
-  # get 'cats/new'
-  # get 'cats/index'
-  # get 'cats/show'
-  # get 'cats/create'
-  # get 'cats/edit'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :cats, expect: :destroy 
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :cats, except: :destroy
+  resources :cat_rental_requests, only: [:new, :create] do
+    member do
+      post :approve
+      post :deny
+    end
+  end
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
+  root to: redirect('/cats')
 end
