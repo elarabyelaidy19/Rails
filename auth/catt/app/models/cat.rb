@@ -10,6 +10,10 @@ class Cat < ApplicationRecord
   validates :sex, inclusion: GENDERS, if: -> { sex } 
   validates :birth_date_in_the_past, if: -> { birth_date }
 
+  has_many :rental_requests, 
+    class_name: :CatRentalRequest, 
+    dependent: :destroy 
+    
   belongs_to :owner, 
     class_name: 'User', 
     foreign_key: :user_id

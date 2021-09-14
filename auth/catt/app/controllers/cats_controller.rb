@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+  before_action :require_user!, only: %i(new create edit update)
   def new  
     @cat = Cat.new 
     render :new 
