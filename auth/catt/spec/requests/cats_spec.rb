@@ -9,9 +9,10 @@ RSpec.describe "Cats", type: :request do
   end
 
   describe "GET /index" do
-    it "returns http success" do
-      get "/cats/index"
-      expect(response).to have_http_status(:success)
+    it "render the cats index" do
+      get :index
+      expect(response).to be_success 
+      expect(response).to render_template(:index)
     end
   end
 
