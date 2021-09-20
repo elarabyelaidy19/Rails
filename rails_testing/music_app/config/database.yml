@@ -17,39 +17,32 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password:
 
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   url: <%= ENV['DATABASE_URL'] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: music_app_development
+  database: music_app
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: music_app
-
+  #username: ninety_nine_cats
   # The password associated with the postgres role (username).
   #password:
-
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
   #host: localhost
-
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
   #port: 5432
-
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
-
   # Minimum log levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,
   #   log, notice, warning, error, fatal, and panic
@@ -60,8 +53,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: music_app_test
+    adapter: postgresql
+    database: music_app_db_test
+    pool: 5
+    timeout: 5000
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,8 +77,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
   <<: *default
-  host: db
   #  Here we have removed the defaults in order to host
   # this application using Docker and the Heroku Container Registry
+  host: db
+  username: postgres
+  password:
