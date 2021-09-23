@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>  
+
+
+  <style>  
+    /*Selectors */ 
+    
+
+    .favorite { 
+      color: red;
+    }
+
+    .another { 
+      color: blueviolet;
+    }
+
+    #dog-one {  /* the most specific */
+      color: aqua;
+    } 
+
+    p { 
+      color: blue;
+    } 
+
+    p { 
+      color: bisque !important;
+    }
+
+  </style>
+
+
+</head>
+<body>
+  <h1>MY AMazing Document</h1> 
+  <section> 
+    <article> 
+      <h2>Cat</h2>
+        <p class="favorite">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ad laboriosam laudantium incidunt quos dolorum, repellendus
+           eaque facilis id at reiciendis, itaque tempore vel ipsam recusandae doloremque sequi ullam nihil. 
+        </p>
+    </article>  
+
+    <article> 
+      <h2>Dogs</h2> 
+        <p id="dog-one" style="color: brown;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ad laboriosam laudantium incidunt quos dolorum, repellendus
+           eaque facilis id at reiciendis, itaque tempore vel ipsam recusandae doloremque sequi ullam nihil. 
+        </p>
+    </article> 
+
+    <article> 
+      <h2>Bss</h2> 
+        <p class="favorite another">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ad laboriosam laudantium incidunt quos dolorum, repellendus
+           eaque facilis id at reiciendis, itaque tempore vel ipsam recusandae doloremque sequi ullam nihil. 
+        </p>
+    </article> 
+
+  </section>
+</body>
+</html>
