@@ -3,11 +3,7 @@ require 'rack'
 class RackApllication 
   def self.call(env) 
     # p env 
-    http_status = 200
-    headers = { 'Content-Type' => 'text/html' }
-    body = ['hello world']
-
-    [http_status, headers, body]
+   [200 ,{ 'Content-Type' => 'text/html' }, ['hello world'] ]
   end
 end
 
@@ -27,6 +23,6 @@ end
 
 
 Rack::Server.start({ 
-  app: SimpleServer, 
+  app: RackApllication, 
   Port: 3000
 })
