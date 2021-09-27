@@ -29,6 +29,29 @@ class LoggerMiddleware
   end 
 end 
 
+class BrowserFilter 
+  attr_reader :app 
+
+  def initialize(app)  
+    puts "Initialize Browser filters" 
+    p app  
+    @app = app 
+  end 
+
+  def call(env)  
+    puts "Calling Browsers Filter"
+    res = Rack::Response.new 
+
+    if env["HTTP_USER_AGENT"].include?("MSIE") 
+       res.status = 302  
+       res['Location'] = 'https://www.google.come/chrome/'
+       res.finish 
+    else
+      app.call(env)
+    end 
+  end  
+end 
+
 
 hey_app = Proc.new do |env| 
   puts "Calling hey_app"
@@ -46,8 +69,9 @@ hey_app = Proc.new do |env|
 end 
 
 app = Rack::Builder.new do 
-  use LoggerMiddleware 
-  run hey_app 
+  use BrowserFilter # calling occur in top down 
+  use LoggerMiddleware # This init first 
+  run hey_app #  
 end.to_app
 
 Rack::Server.start({ 
